@@ -4,13 +4,6 @@ from app.models import db, User, debug, SCHEMA
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    if debug == "False":
-        # Before seeding in production, you want to run the seed undo
-        # command, which will  truncate all tables prefixed with
-        # the schema name (see comment in users.py undo_users function).
-        # Make sure to add all your other model's undo functions below
-        undo_users()
-
     demo = User(
         username='Demo-lition', first_name='Demoli', last_name='Tion', email='demo@aa.io', password='password')
     marnie = User(

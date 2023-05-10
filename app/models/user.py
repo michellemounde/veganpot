@@ -7,7 +7,7 @@ from .db import db, debug, SCHEMA, add_prefix_for_prod
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    if debug == "False":
+    if debug == "0":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)

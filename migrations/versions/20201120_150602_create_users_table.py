@@ -34,7 +34,7 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
 
-    if debug == "False":
+    if debug == "0":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###qqqqqqqqq
 

@@ -22,7 +22,7 @@ const App = () => {
         <Switch>
         </Switch>
       )}
-      <h1>Vegan Decadence</h1>
+      <h1>VeganPot</h1>
     </>
   );
 }

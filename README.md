@@ -1,4 +1,4 @@
-# Vegan Decadence
+# VeganPot
 - Image and short bio of project
 - OR Demo GIF and bio
 

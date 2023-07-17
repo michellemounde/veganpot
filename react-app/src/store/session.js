@@ -25,6 +25,7 @@ export const signup = ({
 }) => async (dispatch) => {
 	const res = await fetch("/api/sessions/users", {
 		method: "POST",
+		credentials: "include",
 		headers: {
 			"Content-Type": "application/json",
 		},
@@ -52,14 +53,16 @@ export const signup = ({
 	} else {
 		const err = new Error("An error occurred. Please try again.")
 		err.name = "ServerError"
+		err.errors = { server: 'A server error occured. Please try again.' }
 		throw err
 	}
 };
 
 
 export const login = ({credential, password}) => async (dispatch) => {
-	const res = await fetch("/api/sessions/", {
+	const res = await fetch("/api/sessions", {
 		method: "POST",
+		credentials: "include",
 		headers: {
 			"Content-Type": "application/json"
 		},
@@ -84,6 +87,7 @@ export const login = ({credential, password}) => async (dispatch) => {
 	} else {
 		const err = new Error("An error occurred. Please try again.")
 		err.name = "ServerError"
+		err.errors = { server: 'A server error occured. Please try again.' }
 		throw err
 	}
 };
@@ -106,7 +110,7 @@ export const logout = () => async (dispatch) => {
 
 
 export const restoreUser = () => async (dispatch) => {
-	const res = await fetch("/api/sessions/", {
+	const res = await fetch("/api/sessions", {
 		headers: {
 			"Content-Type": "application/json",
 		},

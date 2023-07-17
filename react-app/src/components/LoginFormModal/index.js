@@ -30,7 +30,7 @@ const LoginFormModal = () => {
 
   return (
     <>
-      <h1>Log In</h1>
+      <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         {errors.server && <p>{errors.server}</p>}
         {errors.credential && <p>{errors.credential}</p>}

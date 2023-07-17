@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import sessionReducer from './session';
+import bookmarksReducer from './bookmarks';
+import commentsReducer from './comments';
+import ratingsReducer from './ratings';
+import recipesReducer from './recipes';
 
 const rootReducer = ({
-  session: sessionReducer
+  session: sessionReducer,
+  bookmarks: bookmarksReducer,
+  comments: commentsReducer,
+  ratings: ratingsReducer,
+  recipes: recipesReducer
 });
 
 const preloadedState = {};

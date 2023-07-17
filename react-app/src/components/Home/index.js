@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
-
+// TODO If user, load all their data into state else ask for login to perform functionality
   const [featured, setFeatured] = useState([]);
   const [categories, setCategories] = useState([]);
 

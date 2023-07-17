@@ -10,6 +10,7 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.users import users
 from .api.sessions import sessions
+from .api.recipes import recipes
 from .seeds import seed_commands
 from .config import Config
 
@@ -31,12 +32,13 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(users, url_prefix='/api/users')
 app.register_blueprint(sessions, url_prefix='/api/sessions')
+app.register_blueprint(recipes, url_prefix='/api/recipes')
 db.init_app(app)
 Migrate(app, db)
 
 # Application Security
 if os.environ.get('FLASK_DEBUG') == '1':
-    CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+    CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 else:
     FlaskHelmet(app)
 
@@ -60,8 +62,7 @@ def inject_csrf_token(response):
     'csrf_token',
     generate_csrf(),
     secure=True if os.environ.get('FLASK_DEBUG') == '0' else False,
-    samesite='Strict' if os.environ.get(
-        'FLASK_DEBUG') == '0' else None,
+    samesite='Strict' if os.environ.get('FLASK_DEBUG') == '0' else None,
     httponly=True)
 
     return response
@@ -84,22 +85,22 @@ def api_help():
 
     return route_list
 
-"""Serve static files in production"""
-if os.environ.get('FLASK_DEBUG') == '0':
-    @app.route('/', defaults={'path': ''})
-    @app.route('/<path:path>')
-    def react_root(path):
-        """This route will direct to the public directory in our react builds in the production environment for favicon or index.html requests"""
-        if path == 'favicon.ico':
-            return send_from_directory(app.static_folder, 'public/favicon.ico')
-        return app.send_static_file('index.html')
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def react_root(path):
+    """This route will direct to the public directory in our react builds in the production environment for favicon or index.html requests"""
+    if path == 'favicon.ico':
+        return send_from_directory(app.static_folder, 'public/favicon.ico')
+    return app.send_static_file('index.html')
 
 
-    @app.errorhandler(404)
-    def not_found(e):
-        return app.send_static_file('index.html')
+@app.errorhandler(404)
+def not_found(err):
+    return app.send_static_file('index.html')
+
 
 @app.errorhandler(CSRFError)
-def handle_csrf_error(e):
-    res = make_response({ 'errors': { 'csrf': e.description } }, 400)
+def handle_csrf_error(err):
+    res = make_response({ 'errors': { 'csrf': err.description } }, 400)
     return res

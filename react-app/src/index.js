@@ -8,12 +8,20 @@ import { ModalProvider, Modal } from "./context/Modal";
 
 import store from "./store";
 import * as sessionActions from "./store/session";
+import * as bookmarkActions from "./store/bookmarks";
+import * as commentActions from "./store/comments";
+import * as ratingActions from "./store/ratings";
+import * as recipeActions from "./store/recipes";
 
 import "./index.css";
 
 if (process.env.NODE_ENV !== "production") {
 	window.store = store;
 	window.sessionActions = sessionActions;
+	window.bookmarkActions = bookmarkActions;
+	window.commentActions = commentActions;
+	window.ratingActions = ratingActions;
+	window.recipeActions = recipeActions;
 }
 
 // Wrap the application with the Modal provider and render the Modal component

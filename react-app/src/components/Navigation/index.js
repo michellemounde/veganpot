@@ -17,7 +17,10 @@ const Navigation = ({ isLoaded }) => {
 
 	return (
 		<nav>
-			<ul>
+			<ul className='bg-green-light flex justify-between'>
+				<li className='basis-1/6'>
+					<img src={"/VeganPot-logos-cropped/VeganPot-logos.jpeg"} alt="VeganPot logo" className="object-cover max-w-full max-h-full"/>
+				</li>
 				<li><NavLink activeClassName='active' to="/" exact>Home</NavLink></li>
 				<li><NavLink activeClassName='active' to="/recipes" exact>Recipes</NavLink></li>
 				<li><NavLink activeClassName='active' to="/about" exact>About</NavLink></li>

@@ -13,7 +13,11 @@ const Home = () => {
 
   return (
     <>
-      <h2>Find vegan recipes from vegan websites</h2>
+      <h2 className="font-mono bg-green-light">Save your favourite vegan recipes all in one place and browse saved recipes</h2>
+
+      <p>Sans serif font-choice</p>
+      <p>Serif font-choice</p>
+      <p>Mono font-choice</p>
 
       <section>
         {/* Set first row of featured item from each category */}

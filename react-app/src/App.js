@@ -31,26 +31,28 @@ const App = () => {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path='/' exact component={Home}></Route>
-          <Route path='/about' exact component={About}></Route>
-          <Route path='/profile' exact component={Profile}></Route>
-          <Route path='/recipes' exact component={Recipes}></Route>
-          <Route path='/recipes/add' component={RecipeForm}></Route>
-        </Switch>
-      )}
-      <h1>VeganPot</h1>
 
-      <button aria-label='Add recipe button' title='Add recipe button' type="button" onClick={handleClick}>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'>
-          <path fill="currentColor"
-            d='M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3 329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 329.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z'/>
-        </svg>
-      </button>
+      <main className="overflow-scroll">
+        {isLoaded && (
+          <Switch>
+            <Route path='/' exact component={Home}></Route>
+            <Route path='/about' exact component={About}></Route>
+            <Route path='/profile' exact component={Profile}></Route>
+            <Route path='/recipes' exact component={Recipes}></Route>
+            <Route path='/recipes/add' component={RecipeForm}></Route>
+          </Switch>
+        )}
 
+        <button aria-label='Add recipe button' title='Add recipe button' type="button" onClick={handleClick}>
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'>
+            <path fill="currentColor"
+              d='M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3 329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 329.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z'/>
+          </svg>
+        </button>
 
-      <footer>
+      </main>
+
+      <footer className="bg-green-light fixed bottom-0 w-full">
         Designed and Developed in 🇰🇪 by Michelle Mounde.
       </footer>
     </>

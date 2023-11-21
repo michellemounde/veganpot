@@ -5,7 +5,7 @@ const RecipeItem = () => {
   return (
     <>
       <h2>Recipe Name</h2>
-      <img></img>
+      {/* <img></img> */}
 
       <div>
         <p>Prep Time:<span></span></p>

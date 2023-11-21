@@ -7,7 +7,7 @@ const About = () => {
       <section>
         <h2>General Intro</h2>
         <p></p>
-        <img></img>
+        {/* <img></img> */}
       </section>
 
       <section>

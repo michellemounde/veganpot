@@ -29,7 +29,7 @@ const Home = () => {
         {/* Set first row of featured item from each category */}
         {featured && featured.forEach((category) => {
           <figure>
-            <img></img>
+            {/* <img></img> */}
             <figcaption></figcaption>
           </figure>;
         })}
@@ -40,11 +40,13 @@ const Home = () => {
         {/* Set row of featured items for each category*/}
         {categories && categories.forEach((category) => {
           <section>
-            {category.map((recipe) => {
-              <figure>
-                <img></img>
-                <figcaption></figcaption>
-              </figure>;
+            {category.map((recipe, idx) => {
+              return (
+                <figure key={idx}>
+                  {/* <img></img> */}
+                  <figcaption></figcaption>
+                </figure>
+              );
             })}
           </section>;
         })}

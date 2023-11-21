@@ -6,7 +6,7 @@ const Profile = () => {
     <>
       <section>
         <h2>Profile</h2>
-        <img></img>
+        {/* <img></img> */}
         <p>Username</p>
         <p>Email</p>
         <p>Delete</p>

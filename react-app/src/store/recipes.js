@@ -75,7 +75,7 @@ export const createNewRecipe = (recipeObj) => async (dispatch) => {
 
 const initialState = { recipes: null };
 
-const recipesReducer = (action, state = initialState) => {
+const recipesReducer = (state = initialState, action) => {
   const nextState = { ...state };
 
   switch (action.type) {

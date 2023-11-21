@@ -11,7 +11,7 @@ const rootReducer = ({
   bookmarks: bookmarksReducer,
   comments: commentsReducer,
   ratings: ratingsReducer,
-  recipes: recipesReducer
+  recipes: recipesReducer,
 });
 
 const preloadedState = {};
@@ -21,12 +21,11 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => {
     if (process.env.NODE_ENV !== 'production') {
       const logger = require('redux-logger').default;
-      return getDefaultMiddleware().concat(logger)
-    } else {
-      return getDefaultMiddleware();
+      return getDefaultMiddleware().concat(logger);
     }
+    return getDefaultMiddleware();
   },
-  preloadedState
-})
+  preloadedState,
+});
 
 export default store;

@@ -1,3 +1,4 @@
+import React from 'react';
 import './RecipeItem.css';
 
 const RecipeItem = () => {

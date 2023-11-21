@@ -1,3 +1,4 @@
+import React from 'react';
 import { useModal } from '../../context/Modal';
 
 const OpenModalButton = ({

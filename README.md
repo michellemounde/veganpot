@@ -33,13 +33,18 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Usage
 
+To regenerate requirements.txt from Pipfile run:
+```python
+pipenv requirements > requirements.txt
+```
+
 Provide instructions and examples for use. Include screenshots as needed.
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+```md
+![alt text](assets/images/screenshot.png)
+```
 
 ## Acknowledgements
 
@@ -54,15 +59,15 @@ Collaborators:
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 Credits:
 
-	Design:
-		HTML5UP (html5up.net)
+    Design:
+        HTML5UP (html5up.net)
 
-	Icons:
-		Font Awesome (fontawesome.io)
+    Icons:
+        Font Awesome (fontawesome.io)
 
-	Other:
-		Animations (https://alvarotrigo.com/blog/)
-		Menu (https://www.cssscript.com/expanding-dropdown-menu/)
+    Other:
+        Animations (https://alvarotrigo.com/blog/)
+        Menu (https://www.cssscript.com/expanding-dropdown-menu/)
 
 If you followed tutorials, include links to those here as well.
 

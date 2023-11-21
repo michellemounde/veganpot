@@ -1,2 +1,2 @@
-from .db import db, debug, SCHEMA
+from .db import SCHEMA, db, debug
 from .user import User

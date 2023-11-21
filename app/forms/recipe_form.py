@@ -3,6 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 
 from app.models import User
+
 # , Recipe
 
 
@@ -13,8 +14,9 @@ def recipe_exists(form, field):
     # if recipe:
     #     raise ValidationError('Recipe already added.')
 
+
 class RecipeForm(FlaskForm):
-    url = StringField('url', validators = [DataRequired(), recipe_exists])
+    url = StringField("url", validators=[DataRequired(), recipe_exists])
     # first_name = StringField('first_name', validators=[DataRequired()])
     # last_name = StringField('last_name', validators=[DataRequired()])
     # username = StringField('username', validators=[DataRequired(), username_exists])

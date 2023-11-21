@@ -1,0 +1,17 @@
+[tool.black]
+line-length = 115
+target-version = ["py39"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | docs
+  | instance
+  | migrations
+  | react-app
+)/
+'''
+
+[tool.isort]
+profile = "black"

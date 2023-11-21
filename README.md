@@ -33,9 +33,24 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Usage
 
-To regenerate requirements.txt from Pipfile run:
+1. To regenerate requirements.txt from Pipfile run:
 ```python
 pipenv requirements > requirements.txt
+```
+
+2. To format and lint python files, start the virtual environment by running:
+```python
+pipenv shell
+```
+Then run:
+a. To see what will be changed
+```bash
+bash scripts/check-style.sh
+```
+
+b. To apply auto-fixes
+```bash
+bash scripts/fix-style.sh
 ```
 
 Provide instructions and examples for use. Include screenshots as needed.

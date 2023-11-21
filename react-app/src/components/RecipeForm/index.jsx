@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { addNewRecipe, createNewRecipe } from "../../store/recipes";
+import { addNewRecipe, createNewRecipe } from '../../store/recipes';
 
-import "./RecipeForm.css";
+import './RecipeForm.css';
 
 const RecipeForm = () => {
   const dispatch = useDispatch();
 
-  const [url, setUrl] = useState("")
-  const [name, setName] = useState("");
+  const [url, setUrl] = useState('');
+  const [name, setName] = useState('');
   const [instructions, setInstructions] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -18,31 +18,38 @@ const RecipeForm = () => {
 
     const payload = {
       name,
-      instructions
-    }
+      instructions,
+    };
 
     return dispatch(createNewRecipe(payload))
-      .catch(async (err) => setErrors(err.errors))
+      .catch(async (err) => setErrors(err.errors));
   };
 
   const handleAddRecipe = (e) => {
     e.preventDefault();
 
     const payload = {
-      url
-    }
+      url,
+    };
 
     return dispatch(addNewRecipe(payload))
-      .catch(async (err) => setErrors(err.errors))
-  }
+      .catch(async (err) => setErrors(err.errors));
+  };
 
-  // TODO make Add and create recipe a tabbed option for adding recipe from URL and creating own recipe form that matches recipe item options
+  // TODO make Add and create recipe a tabbed option for adding recipe from URL
+  // TODO - (cont'd) and creating own recipe form that matches recipe item options
   return (
     <>
       <h2>Add Recipe</h2>
 
       <form onSubmit={handleAddRecipe}>
-        {/*errors.url && <p>{errors.url}</p> */}
+        {/* TODO - delete this after sorting errors */}
+        {errors &&
+          <ul>
+            {errors.map((err, idx) => <li key={idx}>{err}</li>)}
+          </ul>
+        }
+        {/* errors.url && <p>{errors.url}</p> */}
         <label>
           Link
           <input
@@ -77,7 +84,7 @@ const RecipeForm = () => {
               value={instructions.first}
               onChange={(e) => setInstructions({
                 ...instructions,
-                first: e.target.value
+                first: e.target.value,
               })}
               required
             />
@@ -88,7 +95,7 @@ const RecipeForm = () => {
               value={instructions.second}
               onChange={(e) => setInstructions({
                 ...instructions,
-                second: e.target.value
+                second: e.target.value,
               })}
               required
             />
@@ -99,6 +106,6 @@ const RecipeForm = () => {
       </form>
     </>
   );
-}
+};
 
 export default RecipeForm;

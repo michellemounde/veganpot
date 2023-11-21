@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { login } from "../../store/session";
-import { useModal } from "../../context/Modal";
+import { login } from '../../store/session';
+import { useModal } from '../../context/Modal';
 
-import "./LoginForm.css";
+import './LoginForm.css';
 
 const LoginFormModal = () => {
   const dispatch = useDispatch();
 
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
+  const [credential, setCredential] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
   const { closeModal } = useModal();
@@ -20,12 +20,12 @@ const LoginFormModal = () => {
 
     const payload = {
       credential,
-      password
-    }
+      password,
+    };
 
     return dispatch(login(payload))
       .then(closeModal)
-      .catch(async (err) => setErrors(err.errors))
+      .catch(async (err) => setErrors(err.errors));
   };
 
   return (
@@ -58,6 +58,6 @@ const LoginFormModal = () => {
       </form>
     </>
   );
-}
+};
 
 export default LoginFormModal;

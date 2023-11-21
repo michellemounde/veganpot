@@ -25,7 +25,7 @@ export const addNewRecipe = ({ url }) => async (dispatch) => {
     const data = await res.json();
     if (data.recipe) dispatch(addRecipe(data.recipe));
     return res;
-  } if (res.status < 500) {
+  } else if (res.status < 500) {
     const data = await res.json();
     if (data.errors) {
       const err = new Error('');
@@ -41,8 +41,36 @@ export const addNewRecipe = ({ url }) => async (dispatch) => {
   }
 };
 
-export const createNewRecipe = (recipeObj) => {
+export const createNewRecipe = (recipeObj) => async (dispatch) => {
+  // TODO check create recipe object
+  const res = await fetch('/api/recipes', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ recipeObj }),
+  });
 
+  if (res.ok) {
+    // TODO create recipe
+    const data = await res.json();
+    if (data.recipe) dispatch(createRecipe(data.recipe));
+    return res;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    if (data.errors) {
+      const err = new Error('');
+      err.errors = data.errors;
+      err.name = '';
+      throw err;
+    }
+  } else {
+    const err = new Error('An error occurred. Please try again.');
+    err.name = 'ServerError';
+    err.errors = { server: 'A server error occured. Please try again.' };
+    throw err;
+  }
 };
 
 const initialState = { recipes: null };

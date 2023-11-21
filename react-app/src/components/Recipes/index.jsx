@@ -5,7 +5,13 @@ import './Recipes.css';
 
 const Recipes = () => {
   const [ingredient, setIngredient] = useState('');
-  const recipes = useSelector(state => state.recipes);
+  const recipes = useSelector((state) => state.recipes);
+
+  useEffect(() => {
+    if (recipes) {
+      // TODO - placeholder for recipes use
+    }
+  }, [recipes]);
 
   return (
     <>
@@ -17,12 +23,12 @@ const Recipes = () => {
 
           <div>
             <input type='checkbox' id='breakfast' name='breakfast'/>
-            <label for='breakfast'>Breakfast</label>
+            <label htmlFor='breakfast'>Breakfast</label>
           </div>
 
           <div>
             <input type='checkbox' id='lunch' name='lunch'/>
-            <label for='lunch'>Lunch</label>
+            <label htmlFor='lunch'>Lunch</label>
           </div>
         </fieldset>
 
@@ -31,12 +37,12 @@ const Recipes = () => {
 
           <div>
             <input type='checkbox' id='breakfast' name='breakfast'/>
-            <label for='breakfast'>Breakfast</label>
+            <label htmlFor='breakfast'>Breakfast</label>
           </div>
 
           <div>
             <input type='checkbox' id='lunch' name='lunch'/>
-            <label for='lunch'>Lunch</label>
+            <label htmlFor='lunch'>Lunch</label>
           </div>
         </fieldset>
 
@@ -51,7 +57,8 @@ const Recipes = () => {
 
       <section>
         <ul>
-          {/*recipes && recipes.map(recipe => {
+          {/* TODO - show recipes */}
+          {/* recipes && recipes.map(recipe => {
             <figure>
               <img></img>
               <figcaption></figcaption>
@@ -61,7 +68,7 @@ const Recipes = () => {
 
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Recipes;

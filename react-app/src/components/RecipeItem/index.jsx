@@ -2,7 +2,6 @@ import React from 'react';
 import './RecipeItem.css';
 
 const RecipeItem = () => {
-
   return (
     <>
       <h2>Recipe Name</h2>
@@ -46,7 +45,7 @@ const RecipeItem = () => {
         </ol>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default RecipeItem;

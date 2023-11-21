@@ -2,7 +2,6 @@ import React from 'react';
 import './Profile.css';
 
 const Profile = () => {
-
   return (
     <>
       <section>
@@ -35,7 +34,7 @@ const Profile = () => {
         </ul>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Profile;

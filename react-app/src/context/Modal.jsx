@@ -25,7 +25,7 @@ export function ModalProvider({ children }) {
     modalContent, // React component to render inside modal
     setModalContent, // function to set the React component to render inside modal
     setOnModalClose, // function to set the callback function called when modal is closing
-    closeModal // function to close the modal
+    closeModal, // function to close the modal
   };
 
   return (
@@ -49,8 +49,8 @@ export const Modal = () => {
       <div id="modal-background" onClick={closeModal} />
       <div id="modal-content">{modalContent}</div>
     </div>,
-    modalRef.current
+    modalRef.current,
   );
-}
+};
 
 export const useModal = () => useContext(ModalContext);

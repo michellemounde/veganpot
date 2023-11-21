@@ -9,11 +9,17 @@ const Home = () => {
 
   useEffect(() => {
     // Scrape recipes or update scraped recipes on page load
-  }, [])
+    // TODO set featured recipes.
+    setFeatured([]);
+    // TODO set available categories.
+    setCategories([]);
+  }, []);
 
   return (
     <>
-      <h2 className="font-mono bg-green-light">Save your favourite vegan recipes all in one place and browse saved recipes</h2>
+      <h2 className="font-mono bg-green-light">
+        Save your favourite vegan recipes all in one place and browse saved recipes
+      </h2>
 
       <p>Sans serif font-choice</p>
       <p>Serif font-choice</p>
@@ -21,31 +27,31 @@ const Home = () => {
 
       <section>
         {/* Set first row of featured item from each category */}
-        {featured && featured.forEach(category => {
+        {featured && featured.forEach((category) => {
           <figure>
             <img></img>
             <figcaption></figcaption>
-          </figure>
+          </figure>;
         })}
 
       </section>
 
       <section>
         {/* Set row of featured items for each category*/}
-        {categories && categories.forEach(category => {
+        {categories && categories.forEach((category) => {
           <section>
-            {category.map(recipe => {
+            {category.map((recipe) => {
               <figure>
                 <img></img>
                 <figcaption></figcaption>
-              </figure>
+              </figure>;
             })}
-          </section>
+          </section>;
         })}
 
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Home;
